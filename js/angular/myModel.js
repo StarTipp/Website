@@ -13,15 +13,22 @@ app.factory('User', function() {
     };
 });
 
+app.factory('SelectedBettingRound', function() {
+    return BettingRound
+});
+
 app.factory('BettingRound', function() {
     return BettingRound;
 });
 
 app.factory('BettingManager', function() {
     var BettingManager = {};
+    var SelectedBettingRound;
+    
     BettingManager.getBettingRounds = function () {
-        var BettingRounds = [new BettingRound('Better 1'), new BettingRound('Better 2')];
+        var BettingRounds = [new BettingRound('Tipprunde 1'), new BettingRound('Tipprunde 2')];
         return BettingRounds;
     };
+    
     return BettingManager;
 });
