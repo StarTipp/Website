@@ -18,6 +18,13 @@ app.controller('startpageController', function($scope, $location, User, BettingM
         BettingManager.SelectedBettingRound = bettingRound;
         $location.path('/tip');
     }
+
+    $scope.addNewBettingRound = function () {
+        BettingManager.BettingRounds
+
+
+
+    }
 });
 
 app.controller('mainController', function($scope, $location, User, BettingManager) {

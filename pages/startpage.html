@@ -7,9 +7,13 @@
                 <div ng-repeat="n in BettingRounds">
                     <a ng-click="selectBettingRound(n.name)" >{{n.name}}</a>
                 </div>
+                <div >
+                    <input title="Tipprunden Name" name="bettingRoundName" type="text" ng-model="BettingRoundName"/>
+                    <button class="btn-lg" ng-click="addNewBettingRound()">+</button>
+                </div>
             </div>
             <div class="col-lg-6">
-                <h1>Meine Tourniere</h1>
+                <h1>Meine Tuniere</h1>
             </div>
         </div>
     </div>

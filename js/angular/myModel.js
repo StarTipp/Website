@@ -24,9 +24,10 @@ app.factory('BettingRound', function() {
 app.factory('BettingManager', function() {
     var BettingManager = {};
     var SelectedBettingRound;
+    var BettingRounds;
     
     BettingManager.getBettingRounds = function () {
-        var BettingRounds = [new BettingRound('Tipprunde 1'), new BettingRound('Tipprunde 2')];
+        BettingRounds = [new BettingRound('Tipprunde 1'), new BettingRound('Tipprunde 2')];
         return BettingRounds;
     };
     
