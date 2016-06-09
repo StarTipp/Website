@@ -1,51 +1,67 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" ng-app="Startipp">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Simple Sidebar - Start Bootstrap Template</title>
-
+    <meta charset="UTF-8">
+    <title>Startipp Website</title>
+    <script src="js/jquery.js"></script>
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link href="css/simple-sidebar.css" rel="stylesheet">
-
-    <!-- AngularJS Core JavaScript -->
-    <script src="js/angular/angular.min.js"></script>
-    <script src="js/angular/angular-route.min.js"></script>
-
-    <!-- Custom Scripts -->
-    <script src="js/angular/myApp.js"></script>
-    <script src="js/angular/myModel.js"></script>
-    <script src="js/angular/myController.js"></script>
-</head>
-
-<body ng-app="StarTipp" ng-controller="loginController">
-    <div id="wrapper">
-        <div ng-view></div>
-    </div>
-    <!-- /#wrapper -->
-
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
 
-    <!-- Menu Toggle Script -->
-    <script>
-    $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-    });
-    </script>
+    <!-- AngularJS Core JavaScript -->
+    <script type="text/javascript"  src="js/angular/angular.js"></script>
 
+    <!-- App JavaScript -->
+    <script type="text/javascript"  src="app/app.js"></script>
+</head>
+<body  ng-controller="LoginController as loginCtrl">
+<div ng-controller="NavigationController as navCtrl">
+    <nav class="navbar navbar-default" >
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="#" class="navbar-brand" ng-click="navCtrl.setActive('startpage')">Startipp</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li ng-class="{active:navCtrl.isActive('tipping')}">
+                        <a href="#" ng-click="navCtrl.setActive('tipping')">Tipp Abgabe</a>
+                    </li>
+                    <li ng-class="{active:navCtrl.isActive('overview')}">
+                        <a href="#" ng-click="navCtrl.setActive('overview')">Übersicht</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown" ng-show="loginCtrl.loggedIn">
+                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{loginCtrl.username}}<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Profile</a></li>
+                            <li><a href="#">Settings</a></li>
+                            <li><a href="#">Tippingrounds</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#" ng-click="loginCtrl.logout(); navCtrl.setActive('startpage')">Logout</a></li>
+                        </ul>
+                    </li>
+                    <li ng-hide="loginCtrl.loggedIn" ng-class="{active:navCtrl.isActive('register')}">
+                        <a href="#" ng-click="navCtrl.setActive('register')">Register</a>
+                    </li>
+                    <li ng-hide="loginCtrl.loggedIn" ng-class="{active:navCtrl.isActive('login')}" >
+                        <a href="#" ng-click="navCtrl.setActive('login')">Login</a>
+                    </li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    <login-page ng-show="navCtrl.isActive('login') && loginCtrl.loggedIn === false"></login-page>
+    <start-page ng-show="navCtrl.isActive('startpage')"></start-page>
+</div>
 </body>
-
 </html>
