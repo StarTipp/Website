@@ -12,6 +12,7 @@
     <script type="text/javascript"  src="js/angular/angular.js"></script>
 
     <!-- App JavaScript -->
+    <script type="text/javascript"  src="app/tipping.js"></script>
     <script type="text/javascript"  src="app/app.js"></script>
 </head>
 <body  ng-controller="LoginController as loginCtrl">
@@ -62,6 +63,7 @@
     </nav>
     <login-page ng-show="navCtrl.isActive('login') && loginCtrl.loggedIn === false"></login-page>
     <start-page ng-show="navCtrl.isActive('startpage')"></start-page>
+    <tipping-page ng-show="navCtrl.isActive('tipping')"></tipping-page>
 </div>
 </body>
 </html>

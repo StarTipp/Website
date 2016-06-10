@@ -1,6 +1,7 @@
 (function () {
-    var app = angular.module('Startipp', []);
+    var app = angular.module('Startipp', ["Tipping"]);
 
+    //Controller
     app.controller('LoginController', function () {
         this.loggedIn = true;
         this.username = "Florian";
@@ -31,11 +32,16 @@
         }
     });
 
+    //Directives
     app.directive('loginPage', function () {
         return { restrict: 'E', templateUrl: 'pages/login-page.html' }
     });
 
     app.directive('startPage', function () {
         return { restrict: 'E', templateUrl: 'pages/start-page.html' }
+    });
+
+    app.directive('tippingPage', function () {
+        return { restrict: 'E', templateUrl: 'pages/tipping-page.html' }
     });
 })();
