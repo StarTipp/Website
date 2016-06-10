@@ -6,6 +6,7 @@
     <script src="js/jquery.js"></script>
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-theme.css" rel="stylesheet">
     <script src="js/bootstrap.min.js"></script>
 
     <!-- AngularJS Core JavaScript -->
@@ -61,9 +62,11 @@
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
     </nav>
-    <login-page ng-show="navCtrl.isActive('login') && loginCtrl.loggedIn === false"></login-page>
-    <start-page ng-show="navCtrl.isActive('startpage')"></start-page>
-    <tipping-page ng-show="navCtrl.isActive('tipping')"></tipping-page>
+    <div class="container-fluid">
+        <login-page ng-show="navCtrl.isActive('login') && loginCtrl.loggedIn === false"></login-page>
+        <start-page ng-show="navCtrl.isActive('startpage')"></start-page>
+        <tipping-page ng-show="navCtrl.isActive('tipping')"></tipping-page>
+    </div>
 </div>
 </body>
 </html>
