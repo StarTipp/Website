@@ -10,7 +10,7 @@
             <div class="col-md-1 text-right">Name</div>
             <div class="col-md-1 text-left">Punkte</div>
         </div>
-        <div class="row top-down-buffer-3" ng-repeat="better in bettingGroup.better">
+        <div class="row top-down-buffer-3" ng-repeat="better in bettingGroup.better| orderBy:'-points'">
             <div class="row  top-buffer-1" >
                 <div class="col-md-1 text-right">{{better.name}}</div>
                 <div class="col-md-1 text-left">{{better.points}}</div>
