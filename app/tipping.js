@@ -20,8 +20,8 @@
             $scope.bettingGroup.name = name;
             $scope.bettingGroup.tournaments = [];
             $scope.bettingGroup.tournaments.push(tournament);
-            $scope.bettingGroup.better.push(better);
             $scope.bettingGroup.better = [];
+            $scope.bettingGroup.better.push(better);
             $scope.bettingGroup.better.push(better2);
             $scope.bettingGroup.better.push(better3);
         }
