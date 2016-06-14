@@ -43,20 +43,20 @@
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown" ng-show="loginCtrl.loggedIn">
-                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{loginCtrl.username}}<span class="caret"></span></a>
+                    <li class="dropdown" ng-show="loggedIn">
+                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{username}}<span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="#">Profile</a></li>
                             <li><a href="#">Settings</a></li>
                             <li><a href="#">Tippingrounds</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="#" ng-click="loginCtrl.logout(); navCtrl.setActive('startpage')">Logout</a></li>
+                            <li><a href="#" ng-click="loginCtrl.logout(); navCtrl.setActive('login')">Logout</a></li>
                         </ul>
                     </li>
-                    <li ng-hide="loginCtrl.loggedIn" ng-class="{active:navCtrl.isActive('register')}">
+                    <li ng-hide="loggedIn" ng-class="{active:navCtrl.isActive('register')}">
                         <a href="#" ng-click="navCtrl.setActive('register')">Register</a>
                     </li>
-                    <li ng-hide="loginCtrl.loggedIn" ng-class="{active:navCtrl.isActive('login')}" >
+                    <li ng-hide="loggedIn" ng-class="{active:navCtrl.isActive('login')}" >
                         <a href="#" ng-click="navCtrl.setActive('login')">Login</a>
                     </li>
                 </ul>
@@ -64,10 +64,10 @@
         </div><!-- /.container-fluid -->
     </nav>
     <div class="container" ng-controller="ContextController as contextCtrl">
-        <login-page ng-show="navCtrl.isActive('login') && loginCtrl.loggedIn === false"></login-page>
-        <start-page ng-show="navCtrl.isActive('startpage')"></start-page>
-        <tipping-page ng-show="navCtrl.isActive('tipping')"></tipping-page>
-        <overview ng-show="navCtrl.isActive('overview')"></overview>
+        <login-page ng-show="navCtrl.isActive('login') && loggedIn === false"></login-page>
+        <start-page ng-show="navCtrl.isActive('startpage') && loggedIn === true"></start-page>
+        <tipping-page ng-show="navCtrl.isActive('tipping') && loggedIn === true"></tipping-page>
+        <overview ng-show="navCtrl.isActive('overview') && loggedIn === true"></overview>
     </div>
 </div>
 </body>

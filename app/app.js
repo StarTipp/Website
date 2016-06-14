@@ -2,33 +2,37 @@
     var app = angular.module('Startipp', ["Tipping"]);
 
     //Controller
-    app.controller('LoginController', function () {
-        this.loggedIn = true;
-        this.username = "Florian";
-        this.password = "";
+    app.controller('LoginController', function ($scope) {
+        $scope.loggedIn = true;
+        $scope.username = "Florian";
 
-        this.login = function () {
-            if(this.password === "1234"){
-                this.loggedIn = true;
+        this.login = function (username,password) {
+            if(password === "1234"){
+                $scope.loggedIn = true;
+                $scope.username = username;
             }
         }
 
         this.logout = function () {
-            this.loggedIn = false;
-            this.username = "";
-            this.password = "";
+            $scope.loggedIn = false;
+            $scope.username = "";
         }
     });
 
-    app.controller('NavigationController', function () {
+    app.controller('NavigationController', function ($scope) {
         this.activeTab = "startpage";
 
         this.setActive = function (tab) {
-            this.activeTab = tab;
+            if($scope.loggedIn){
+                this.activeTab = tab;
+            }
+            else {
+                this.activeTab = "login";
+            }
         }
         
         this.isActive = function (tab) {
-           return this.activeTab === tab;
+            return this.activeTab === tab;
         }
     });
 
