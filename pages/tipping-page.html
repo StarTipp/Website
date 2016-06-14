@@ -1,12 +1,12 @@
-<div class="row" ng-controller="TippingController as tippingCtrl" ng-init="tippingCtrl.setBetter(loginCtrl.username)">
+<div class="row" ng-controller="TippingController as tippingCtrl">
     <div class="row jumbotron">
-        <h3 class="col-md-4 text-center">Tipper: {{tippingCtrl.better.name}}</h3>
-        <h3 class="col-md-4 text-center">Tipprunde: {{tippingCtrl.bettingGroup.name}}</h3>
-        <h3 class="col-md-4 text-center">Tunier: {{tippingCtrl.tournament.name}}</h3>
+        <h3 class="col-md-4 text-center">Tipper: {{better.name}}</h3>
+        <h3 class="col-md-4 text-center">Tipprunde: {{bettingGroup.name}}</h3>
+        <h3 class="col-md-4 text-center">Tunier: {{tournament.name}}</h3>
     </div>
     <div class="row">
         <form class="row" ng-submit="tippingCtrl.saveTipps()">
-            <div class="row top-down-buffer-3" ng-repeat="gameBet in tippingCtrl.better.gameBets">
+            <div class="row top-down-buffer-3" ng-repeat="gameBet in better.gameBets">
                 <div class="row  top-buffer-1" >
                     <div class="col-md-1 text-right">{{gameBet.game.gamer1.name}}</div>
                     <input class="col-md-1"  title="{{gameBet.game.gamer1.name}}" type="text" ng-model="gameBet.predictedWinsGamer1"/>

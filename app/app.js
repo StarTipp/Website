@@ -44,4 +44,8 @@
     app.directive('tippingPage', function () {
         return { restrict: 'E', templateUrl: 'pages/tipping-page.html' }
     });
+
+    app.directive('overview', function () {
+        return { restrict: 'E', templateUrl: 'pages/overview.html' }
+    });
 })();

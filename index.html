@@ -63,10 +63,11 @@
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
     </nav>
-    <div class="container">
+    <div class="container" ng-controller="ContextController as contextCtrl">
         <login-page ng-show="navCtrl.isActive('login') && loginCtrl.loggedIn === false"></login-page>
         <start-page ng-show="navCtrl.isActive('startpage')"></start-page>
         <tipping-page ng-show="navCtrl.isActive('tipping')"></tipping-page>
+        <overview ng-show="navCtrl.isActive('overview')"></overview>
     </div>
 </div>
 </body>

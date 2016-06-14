@@ -6,7 +6,7 @@
                 <form >
                     <input title="Benutzername" name="username" type="text" ng-model="loginCtrl.username"/>
                     <input title="Passwort" name="password" type="password" ng-model="loginCtrl.password"/>
-                    <button class="btn-lg" ng-click="loginCtrl.login(); navCtrl.setActive('startpage')">Login</button>
+                    <button class="btn-lg" ng-click="loginCtrl.login(); navCtrl.setActive('startpage'); contextCtrl.selectBetter(loginCtrl.username)">Login</button>
                 </form>
             </div>
         </div>

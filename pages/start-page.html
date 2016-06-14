@@ -2,3 +2,16 @@
     <h1 class="text-center">Willkommen ,auf der Startipp Website</h1>
     <h3 class="text-center">Tippe noch heute aktuelle Starcraftspiele</h3>
 </div>
+<div class="row">
+    <div class="col-md-1">Tipprunde:</div>
+    <select class="col-md-2"
+            ng-options="bettingGroup.name for bettingGroup in better.bettingGroups"
+            ng-model="bettingGroup" ng-change="contextCtrl.selectBettingGroup(bettingGroup.name)">
+    </select>
+
+    <div class="col-md-1">Tunier:</div>
+    <select class="col-md-2"
+            ng-options="tournament.name for tournament in bettingGroup.tournaments"
+            ng-model="tournament" ng-change="contextCtrl.selectTournament(tournament.name)">
+    </select>
+</div>

@@ -1,0 +1,20 @@
+<div class="row" ng-controller="OverviewController as overviewCtrl">
+    <div class="row jumbotron">
+        <h3 class="col-md-4 text-center">Tipper: {{better.name}}</h3>
+        <h3 class="col-md-4 text-center">Tipprunde: {{bettingGroup.name}}</h3>
+        <h3 class="col-md-4 text-center">Tunier: {{tournament.name}}</h3>
+    </div>
+    </div>
+    <div class="row">
+        <div class="row  top-buffer-1" >
+            <div class="col-md-1 text-right">Name</div>
+            <div class="col-md-1 text-left">Punkte</div>
+        </div>
+        <div class="row top-down-buffer-3" ng-repeat="better in bettingGroup.better">
+            <div class="row  top-buffer-1" >
+                <div class="col-md-1 text-right">{{better.name}}</div>
+                <div class="col-md-1 text-left">{{better.points}}</div>
+            </div>
+        </div>
+    </div>
+</div>
